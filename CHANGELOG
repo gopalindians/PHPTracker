@@ -1,3 +1,7 @@
+* 0.3.1
+  * Changelog hasn't been updated for v0.3.0
+  * Readme updated to mention changes to project
+
 * 0.2.1
   * basic memory leak protection for seed server
 
