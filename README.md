@@ -1,5 +1,5 @@
 # PHPTracker 0.3.0
-[![Build Status](https://travis-ci.org/tcz/PHPTracker.svg?style=flat-square&branch=master)](https://travis-ci.org/tcz/PHPTracker)
+[![Build Status](https://img.shields.io/travis/tcz/PHPTracker.svg?style=flat-square&branch=master)](https://travis-ci.org/tcz/PHPTracker)
 
 PHPTracker is a library which makes it easy to create your own private file distribution system using the BitTorrent protocol. There are libraries here which can provide a simple tracker, seed a torrent and download a torrent as well.
 
@@ -24,4 +24,4 @@ Tests can be run with PHPUnit, see phpunit.xml for bootstrap configuration.
 Version 0.4.0 is the current development version and can be found in the develop branch. 
 
 ## Licence
-Please see the licence file for information
+Licence is BSD 3 Clause. Please see the licence file for more information.
