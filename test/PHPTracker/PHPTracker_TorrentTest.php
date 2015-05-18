@@ -66,7 +66,7 @@ class PHPTracker_TorrentTest extends PHPUnit_Framework_TestCase
         $info_hash_readable = current( $info_hash_readable );
 
         // We have to hardcode this to the test.
-        $this->assertEquals( 'ce604353af13707d499e376cd8672e32a3260e01', $info_hash_readable );
+        $this->assertEquals( '29e57bcb52e8bc1140993710d9335090cb3b7b37', $info_hash_readable );
     }
 
     /**

@@ -209,6 +209,7 @@ class PHPTracker_Torrent
             $announce_item = array( $announce_item );
         }
 
+        $first_announce_item = reset( $announce_list );
         $torrent_data = array(
             'info' => array(
                 'piece length'  => $this->size_piece,
@@ -216,7 +217,7 @@ class PHPTracker_Torrent
                 'name'          => $this->__get( 'name' ),
                 'length'        => $this->__get( 'length' ),
             ),
-            'announce'          => reset( reset( $announce_list ) ),
+            'announce'          => reset( $first_announce_item ),
             'announce-list'     => $announce_list,
         );
 
