@@ -20,7 +20,7 @@ class PHPTracker_File_FileTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->original_path = sys_get_temp_dir() . 'test_' . md5( uniqid() );
+        $this->original_path = sys_get_temp_dir() . '/test_' . md5( uniqid() );
         file_put_contents( $this->original_path, self::TEST_DATA );
 
         $this->object = new PHPTracker_File_File( $this->original_path );

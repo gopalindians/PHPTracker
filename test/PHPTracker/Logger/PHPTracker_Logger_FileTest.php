@@ -20,8 +20,8 @@ class PHPTracker_Logger_FileTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->log_path_messages    = sys_get_temp_dir() . 'test_' . md5( uniqid() );
-        $this->log_path_errors     = sys_get_temp_dir() . 'test_' . md5( uniqid() );
+        $this->log_path_messages    = sys_get_temp_dir() . '/test_' . md5( uniqid() );
+        $this->log_path_errors     = sys_get_temp_dir() . '/test_' . md5( uniqid() );
 
         $this->object = new PHPTracker_Logger_File( new PHPTracker_Config_Simple( array(
             'file_path_messages'    => $this->log_path_messages,
