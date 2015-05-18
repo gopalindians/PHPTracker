@@ -16,13 +16,6 @@ abstract class PHPTracker_Bencode_Value_Abstract
     protected $value;
 
     /**
-     * Intializing the object with its parsed value.
-     *
-     * @param mixed $value
-     */
-    abstract public function __construct( $value );
-
-    /**
      * Convert the object back to a bencoded string when used as string.
      */
     abstract public function __toString();

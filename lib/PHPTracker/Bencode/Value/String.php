@@ -18,7 +18,7 @@ class PHPTracker_Bencode_Value_String extends PHPTracker_Bencode_Value_Abstract
     {
         if ( !is_string( $value ) )
         {
-            throw new PHPTracker_Bencode_Error_InvalidType( "Invalid string value: $value" );
+            throw new PHPTracker_Bencode_Error_InvalidType( "Invalid string value: " . var_export( $value, true ) );
         }
         $this->value = $value;
     }

@@ -21,7 +21,7 @@ class PHPTracker_TorrentTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         // File name must be fix for info hashing.
-        $this->file_path = sys_get_temp_dir() . 'test_torrent';
+        $this->file_path = sys_get_temp_dir() . '/test_torrent';
         file_put_contents( $this->file_path, self::TEST_DATA );
 
         $file = new PHPTracker_File_File( $this->file_path );
@@ -60,7 +60,7 @@ class PHPTracker_TorrentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals( strlen( self::TEST_DATA ), $this->object->length );
         $this->assertEquals( basename( $this->file_path ), $this->object->name );
         $this->assertEquals( 2, $this->object->size_piece );
-        $this->assertEquals( $this->file_path, $this->object->file_path );
+        $this->assertEquals( realpath($this->file_path), $this->object->file_path );
 
         $info_hash_readable = unpack( 'H*', $this->object->info_hash );
         $info_hash_readable = current( $info_hash_readable );
