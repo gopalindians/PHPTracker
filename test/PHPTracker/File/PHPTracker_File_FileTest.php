@@ -46,7 +46,7 @@ class PHPTracker_File_FileTest extends PHPUnit_Framework_TestCase
      */
     public function test__toString()
     {
-        $this->assertEquals( $this->original_path, $this->object . '' );
+        $this->assertEquals( realpath($this->original_path), $this->object . '' );
     }
 
     /**

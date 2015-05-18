@@ -60,7 +60,7 @@ class PHPTracker_TorrentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals( strlen( self::TEST_DATA ), $this->object->length );
         $this->assertEquals( basename( $this->file_path ), $this->object->name );
         $this->assertEquals( 2, $this->object->size_piece );
-        $this->assertEquals( $this->file_path, $this->object->file_path );
+        $this->assertEquals( realpath($this->file_path), $this->object->file_path );
 
         $info_hash_readable = unpack( 'H*', $this->object->info_hash );
         $info_hash_readable = current( $info_hash_readable );
