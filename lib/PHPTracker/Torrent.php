@@ -70,6 +70,12 @@ class Torrent
     private $info_hash;
 
     /**
+     * Whether or not this torrent should allow using external peer lists
+     * @var integer
+     */
+    private $private;
+
+    /**
      * Initializing object with the piece size and file object, optionally setting attributes from the database.
      *
      * @param File $file To intialize 'file' attribute.
@@ -81,7 +87,7 @@ class Torrent
      * @param string $info_hash Optional. To set 'info_hash' attribute. If not set, will be loaded automatically.
      * @throws InvalidPieceSizeError When the piece size is invalid.
      */
-    public function __construct( File $file, $size_piece, $file_path = null, $name = null, $length = null, $pieces = null, $info_hash = null )
+    public function __construct( File $file, $size_piece, $file_path = null, $name = null, $length = null, $pieces = null, $info_hash = null, $private = 0 )
     {
         if ( 0 >= $size_piece = intval( $size_piece ) )
         {
@@ -97,6 +103,7 @@ class Torrent
         $this->file_path    = $file_path;
         $this->pieces       = $pieces;
         $this->info_hash    = $info_hash;
+        $this->private      = $private;
     }
 
     /**
@@ -151,6 +158,9 @@ class Torrent
             case 'size_piece':
                 return $this->size_piece;
                 break;
+            case 'private':
+                return $this->private;
+                break;
             default:
                 throw new InvalidTorrentAttributeError( "Can't access attribute $attribute of " . __CLASS__ );
         }
@@ -174,6 +184,7 @@ class Torrent
             case 'size_piece':
             case 'info_hash':
             case 'file_path':
+            case 'private':
                 return true;
                 break;
         }
@@ -194,6 +205,7 @@ class Torrent
             'pieces'        => $this->__get( 'pieces' ),
             'name'          => $this->__get( 'name' ),
             'length'        => $this->__get( 'length' ),
+            'private'       => $this->__get( 'private' ),
         ) ), true );
     }
 
@@ -223,6 +235,7 @@ class Torrent
                 'pieces'        => $this->__get( 'pieces' ),
                 'name'          => $this->__get( 'name' ),
                 'length'        => $this->__get( 'length' ),
+                'private'       => $this->__get( 'private' ),
             ),
             'announce'          => reset( $announce_urls ),
             'announce-list'     => $announce_list,
