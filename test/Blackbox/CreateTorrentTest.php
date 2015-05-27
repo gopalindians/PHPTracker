@@ -55,7 +55,7 @@ class CreateTorrentTest extends \PHPUnit_Framework_TestCase
         $torrent_file   = $this->createTorrent();
         $info_hash      = $this->getInfoHash( $torrent_file );
         $saved_torrent  = $this->persistence->getTorrent( $info_hash );
-
+        
         $this->assertEquals(
             (string) $torrent_file,
             (string) $saved_torrent->createTorrentFile( array(
@@ -107,6 +107,7 @@ class CreateTorrentTest extends \PHPUnit_Framework_TestCase
             'pieces'        => $parsed_torrent['info']['pieces'],
             'name'          => $parsed_torrent['info']['name'],
             'length'        => $parsed_torrent['info']['length'],
+            'private'       => $parsed_torrent['info']['private']
         ) ), true );
     }
 
