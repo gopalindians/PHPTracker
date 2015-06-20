@@ -61,7 +61,7 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
         $info_hash_readable = current( $info_hash_readable );
 
         // Trust me on this.
-        $this->assertEquals( 'ce604353af13707d499e376cd8672e32a3260e01', $info_hash_readable );
+        $this->assertEquals( '0a144b67246d58f90ab22c22646952dd1465bf2c', $info_hash_readable );
     }
 
     public function testCreateTorrentFile()
