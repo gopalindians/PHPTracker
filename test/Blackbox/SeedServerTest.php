@@ -11,9 +11,9 @@ class SeedServerTest extends \PHPUnit_Framework_TestCase
 {
     private $persistence;
 
-    const SEED_SERVER_IP        = '192.168.1.123';
+    const SEED_SERVER_IP        = '0.0.0.0';
     const SEED_SERVER_PORT      = 1988;
-    const ANNOUNCE_SERVER_IP    = '192.168.1.123';
+    const ANNOUNCE_SERVER_IP    = '0.0.0.0';
     const ANNOUNCE_SERVER_PORT  = 1989;
     const FILE_TO_DOWNLOAD      = 'cookie_monster.gif';
     const PIECE_LENGTH          = 524288;
@@ -68,7 +68,6 @@ class SeedServerTest extends \PHPUnit_Framework_TestCase
     public function testSeeding()
     {
         $this->torrent_file           = $this->createTorrentFile();
-        echo $this->torrent_file;
         $this->download_destination   = $this->createDownloadDestination();
         $this->announce_server_pid    = $this->startAnnounceServer();
         $this->seed_server_pid        = $this->startSeedServer();
@@ -244,9 +243,9 @@ class SeedServerTest extends \PHPUnit_Framework_TestCase
     private function createDownloadDestination()
     {
         $path = sys_get_temp_dir() . "/phptracker_downloads" . uniqid();
-        mkdir( $path, true, 0777 );
+        mkdir( $path, 0777, true );
 
-        return $path;
+        return realpath($path);
     }
 
     private static function findExecutable( $command_in_path )

@@ -17,7 +17,7 @@ class FileLoggerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->log_path    = sys_get_temp_dir() . 'test_' . md5( uniqid() );
+        $this->log_path    = sys_get_temp_dir() . '/test_' . md5( uniqid() );
         $this->object      = new FileLogger( $this->log_path );
     }
 
